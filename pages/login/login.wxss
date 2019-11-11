@@ -1,0 +1,30 @@
+/* pages/login/login.wxss */
+.loginPage{
+  width: 100%;
+  text-align: center
+  
+}
+.view-image{
+  margin: 0 auto;
+  width: 250rpx;
+  height:  250rpx;
+  margin-top: 200rpx;
+}
+.view-image image{
+  width: 70%;
+}
+.input{
+  border-bottom:#008B8B 1px solid;
+  height: 80rpx;
+  margin: 50rpx;
+  margin-top:100rpx; 
+  text-align: left;
+}
+.login{
+  background: #008B8B;
+  border-radius: 10%;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  color: #fff;
+  font-size: 35rpx;
+}

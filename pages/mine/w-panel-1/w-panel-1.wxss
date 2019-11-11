@@ -1,0 +1,64 @@
+/* pages/discover/childCpns/w-panel-1/w-panel-1.wxss */
+/* ----------- song-container ------------- */
+.header {
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.header text {
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #d33f33;
+}
+
+.header image {
+  width: 26rpx;
+  height: 26rpx;
+  vertical-align: middle;
+  position: relative;
+  bottom: 3rpx;
+  left: 10rpx;
+}
+
+.song-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.song-item {
+  width: 32.5%;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  position: relative;
+}
+
+.song-item image {
+  width: 100%;
+}
+
+.song-item .text {
+  margin: 4rpx 8rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.counter {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  color: #fff;
+}
+
+.counter image {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  right: 10rpx;
+  top: 4rpx;
+}

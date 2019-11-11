@@ -1,0 +1,12 @@
+/* components/swiper/swiper.wxss */
+.swiper{
+  width: 746rpx;
+  height: 360rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.swiper image{
+  width: 650rpx;
+  height: 310rpx;
+}

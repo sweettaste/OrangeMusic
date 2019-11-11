@@ -1,0 +1,38 @@
+<!--推荐页-->
+<!--滚动视图-->
+<scroll-view scroll-y class="scroll-view">
+  <!-- 轮播图 -->
+  <swiper     circular 
+              autoplay="true" 
+              interval="3000" 
+              duration="300"
+              indicator-dots
+              indicator-color="#ccc"
+              indicator-active-color="#ff5777"
+              class="swiper"
+              >
+          <block wx:for="{{banners}}" 
+                 wx:key="{{index}}">
+              <swiper-item class="swiper-item">
+                <image src="{{item.pic}}" 
+                        mode="widthFix"></image>
+              </swiper-item>
+          </block>    
+  </swiper>
+  <!-- 选项 -->
+  <view class="selecttab">
+    <block wx:for="{{recommTitle}}" 
+            wx:key="{{index}}">
+      <view class="view-item"> 
+        <view class="view-icon">
+          <image src="{{'../../../assets/icons/'+item.icon}}" mode="widthFix"></image>
+        </view>
+      <view class="view-text">{{item.title}}</view>
+       </view>
+    </block>
+   </view>
+
+<!-- 推荐歌单 -->
+<w-panel title="{{title}}" datalist="{{recommendSongs}}" />
+
+</scroll-view>

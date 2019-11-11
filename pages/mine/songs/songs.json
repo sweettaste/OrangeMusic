@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "w-panel":"../w-panel-1/w-panel-1"
+  }
+}

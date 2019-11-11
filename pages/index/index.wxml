@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view>
+    <!--搜索框-->
+    <tabbar/>
+
+    <!--轮播图-->
+    <swiper list="{{images}}"/>
+     
+    <!--标题-->
+    <recommend/>
+
+  
+  <!-- <view>
+    <import src="../../template/pageplay/pageplay.wxml"/>
+    <template is="pp" data="{{music,playing,playtype}}"/>
+
+  </view> -->
+</view>
+

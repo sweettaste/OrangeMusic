@@ -1,0 +1,18 @@
+<!--pages/discover/childCpns/w-panel-1/w-panel-1.wxml-->
+<wxs src="../../../wxs/format.wxs" module="format"/>
+<view class='header'>
+  <text>{{title}}</text>
+  <image src="/assets/icons/arrow.png"/>
+</view>
+<view class='song-container'>
+  <block wx:for="{{datalist}}" wx:key="{{index}}">
+    <view class='song-item'>
+      <image src="{{item.picUrl}}" mode='widthFix'/>
+      <view class='text'>{{item.name}}</view>
+      <view class='counter' hidden='{{!item.playCount}}'>
+        <image src="/assets/icons/listen_music.png"/>
+             <text>{{format.countFormat(item.playCount)}}</text>
+      </view>
+    </view>
+  </block>
+</view>

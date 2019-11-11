@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "recommend":"../../components/recommend/recommend",
+    "search":"../../components/search/search",
+    "local":"./local/local",
+    "songs":"./songs/songs"
+  
+  }
+}

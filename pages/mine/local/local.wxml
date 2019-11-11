@@ -1,0 +1,16 @@
+<!--pages/mine/local/local.wxml-->
+  <scroll-view scroll-y class="scroll-view">
+      <!--选择项-->
+      <view class="tab-control">
+        <block wx:for="{{titles}}" wx:key="{{index}}">
+          <view class="tab-item">
+            <view class="item-icon">
+              <image src="{{item.icon}}" mode='widthFix'></image>
+            </view>
+               <view class="item-title">{{item.title}}</view>
+          </view >
+        </block>
+      </view>
+      <!--推荐歌单-->
+      <w-panel-1 title="推荐歌单" datalist="{{recommendSongs}}" />
+    </scroll-view>

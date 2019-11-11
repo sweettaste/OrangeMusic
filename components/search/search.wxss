@@ -1,0 +1,32 @@
+/* components/search/search.wxss */
+
+.control{
+  margin: 0 auto;
+  width: 600rpx;
+  height: 70rpx;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  display: block;
+}
+.hint{
+  text-align: center;
+}
+.search{
+  display: flex;
+  border-radius: 35rpx;
+  width: 630rpx;
+  height: 70rpx;
+  border: 1px #ededed solid;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.search view{
+   position: absolute;
+   z-index: 1;
+   padding: 15rpx 20rpx;
+}

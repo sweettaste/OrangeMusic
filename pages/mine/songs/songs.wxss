@@ -1,0 +1,42 @@
+/* pages/mine/songs/songs.wxss */
+
+.scroll-view{
+  width: 100%;
+  height: 100%
+}
+.swiper-item image{
+  width: 100%;
+
+  
+}
+.swiper{
+   height: 300rpx;
+}
+.selecttab{
+  display: flex;
+  width: 600rpx;
+  margin: 0 auto;
+  height: 150rpx;
+  padding: 10rpx;
+  margin-top: 20rpx;
+}
+.view-item{
+  flex: 1;
+  text-align: center; 
+}
+.view-icon{
+  line-height: 115rpx;
+  margin: 0 auto;
+  width: 100rpx;
+  height: 100rpx;
+  background: #008B8B;
+  border-radius: 50%;
+}
+.view-icon image{
+  width: 50%;
+   
+}
+.view-text{
+  margin-top: 20rpx;
+  font-size: 25rpx;
+}

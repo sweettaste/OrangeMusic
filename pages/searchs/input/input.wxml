@@ -1,0 +1,73 @@
+<!--pages/searchs/input/input.wxml-->
+<!-- 引入模板 -->
+<import src="../../../template/loading/loading.wxml" />
+<view>
+  <view>
+  <!-- 搜索页面 -->
+  <view class="control">
+    <form bindsubmit="getSearchName">
+       <view class="search-title">
+         <view class="search-all">
+           <!-- 图标 -->
+            
+              <!-- 搜索框 -->
+               <view class="view-input">
+                 <view >
+                    <icon type="search" size="16" color="#aaa" />
+                 </view>
+              <input type="text" 
+                      focus maxlength="20" 
+                      auto-focus
+                      name="name" bind:input="inputname" 
+                      bindblur="loseFocus" 
+                      placeholder="搜索单曲、歌手" 
+                      value="{{searchvalue}}">
+              </input>
+            </view>
+         
+        <!-- 清空按钮 -->
+            <view> </view>
+            
+            <view class="button">
+              <button form-type="submit" size="mini" plain>搜索</button>
+            </view>
+           </view>
+       </view>
+    </form>
+  </view>
+  </view>
+  <!-- 搜索结果 -->
+  <view class="search_result" wx:if="{{isShow}}">
+       <view class="search_result_wrap">
+            <view class="searchResult">
+                <scroll-view class="searchResult_scroll" >
+                    <view>单曲</view>
+                </scroll-view>
+            </view>
+        </view>
+  
+  <!-- 搜索歌曲列表 -->
+    <view class="search_list">
+    <swiper >
+      <swiper-item class="swiper-item">
+          <scroll-view scroll-y style="height: 100%">
+        <!-- 单曲播放开始 -->
+        <view class="music-start">
+            <block wx:for="{{singleList}}" wx:key="{{index}}" >
+             <view class="song-list" bind:tap="playMusic" data-id="{{item.id}}" data-index="{{index}}">
+             <!-- 歌曲名称 -->
+            <view class="song-name">{{item.name}}</view>
+           
+            <view class="song-info">{{item.artists[0].name}}/{{item.artists[1].name}}--{{item.album.name}}</view>
+               
+            </view>
+          </block> 
+        </view>
+      </scroll-view>
+      </swiper-item>
+    </swiper>
+    
+    </view>
+</view>
+</view> 
+

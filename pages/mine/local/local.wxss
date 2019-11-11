@@ -1,0 +1,30 @@
+/* pages/mine/local/local.wxss */
+.tab-control{
+    margin-top: 15rpx;
+    width: 100%;
+}
+
+.item-icon{
+
+  width: 230rpx;
+  height: 150rpx;
+  display: flex;
+  float: left;
+}
+.item-icon image{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  margin-top: 45rpx;
+
+}
+
+.item-title{
+  line-height: 150rpx;
+  height: 153rpx;
+  width: 100%;
+  border-top: 1rpx solid rgba(0,0,0,.1);
+}
+.scroll-view{
+  height: 100%
+}

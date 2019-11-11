@@ -1,0 +1,111 @@
+<!--pages/play/paly.wxml-->
+<!-- 播放页面 -->
+<view>
+<!-- 播放背景 -->
+  <view class="play-bg" style="background-image:url('//music.163.com/api/img/blur/{{music.al.pic_str || music.al.pic}}');opacity:1">
+  </view>
+ <!-- 播放器 -->
+ <view>
+  <view class="play-image">
+    <view class="view-stripe">
+      <image class="{{playing ? 'active':''}}" src="../../assets/icons/stripe.png" mode="widthFix"></image>
+    </view>
+    <view class="view-disc {{playing? 'running':'paused'}}">
+        <view class="disc">
+          <image src="../../assets/icons/disc.png"></image>
+        </view>
+          <view class='song-light'>
+               <image src='../../assets/icons/bg.png' mode='widthFix' hidden="{{music.al.picUrl}}"/>
+               <image src="{{music.al.picUrl}}" mode="widthFix"></image>
+          </view>
+    </view>
+  </view> 
+  <!-- 歌词部分  -->
+  <view class="lyric" hidden="{{!showLyric}}">
+    <view>
+      <!-- 显示歌词 -->
+       <block wx:for="{{lyricList}}" wx:key="{{index}}">
+        <view>
+            {{item.lrc}}
+        </view>
+       </block>
+    </view>
+  </view>
+ </view>
+    <!-- 菜单栏 -->
+   <view class="menu">
+     <view class="menu_actions">
+    <!-- //喜欢收藏 -->
+      <view class="item">
+          <image src="../../assets/play/like.png"></image>
+             <image src="../../assets/play/down.png"></image>
+              <image src="../../assets/play/comment.png"></image>
+              <image src="../../assets/play/more.png"></image>
+      </view>
+      
+    </view>
+    <!-- 进度条 -->
+    <view class="slider">
+      <!-- 当前播放时长 -->
+      <text class="font-time">{{currTime}}</text>
+      <slider style="width:100%;"  value="{{sliderValue}}" 
+              max="{{sliderMax}}" min="0" block-size="13" 
+              backgroundColor="rgba(255,255,255,0.5)" 
+              block-color="#fff" activeColor="FF3333">
+        </slider>
+      <!-- //总时长 -->
+      <text class="font-time">{{duration}}</text>
+    </view>
+      <!-- 重点按钮 -->
+    <view class="play_btn">
+       <block wx:for="{{playModeIcon}}" wx:key="{{index}}">
+          <image src="{{item.icon}}" class="cut" mode="widthFix" hidden="{{playMode !== item.id}}" bind:tap="changeIcon"></image>
+       </block>
+        <image src="../../assets/play/prev.png" mode="widthFix" class="cut" bind:tap="playPrev" data-id="{{item}}" ></image>
+        <image src="../../assets/play/play.png" mode="widthFix" class="play" hidden="{{!playing}}" bind:tap="palyIconChange"></image>
+        <image src="../../assets/play/pause.png" mode="widthFix" hidden="{{playing}}" class="play" bind:tap="palyIconChange"></image>
+        <image src="../../assets/play/next.png" mode="widthFix" class="cut" bind:tap="playNext"></image>
+        <image class="cut" src="../../assets/play/list.png" mode="widthFix"></image>
+
+    </view>
+
+   </view>
+   
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <view class='player' bindtap="playerChange">
+            <view class='player-pointer'>
+                <image  src="../../assets/icons/stripe.png" />
+            </view>
+            <view class='player-disc '>
+                <view class='song-disc'>
+                    <image src="../../assets/icons/disc.png" mode='widthFix' />
+                </view>
+                <view class='song-cover'>
+                    <image class='default-cover' src="../../assets/icons/play_bg.png" mode='widthFix'  />
+                    <image src='{{music.al.picUrl}}'></image>
+                </view>
+            </view>
+        </view> -->

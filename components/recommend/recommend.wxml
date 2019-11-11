@@ -1,0 +1,15 @@
+<!--components/recommend/recommend.wxml-->
+<view class="control">
+  <navigator class="control-image" url="../../pages/login/login"  >
+    <image src="../../assets/icons/more.png" mode="widthFix"></image>  
+  </navigator>
+  <view class="titlesbar">
+    <view class="item {{currIndex == index?'active':''}}" 
+          wx:for="{{titles}}" wx:key="{{index}}" 
+          bindtap="handleItemClick" 
+          data-index="{{index}}">
+          {{item}}
+    </view>
+</view>
+
+</view>

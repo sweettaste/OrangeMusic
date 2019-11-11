@@ -1,0 +1,35 @@
+/* components/recommend/recommend.wxss */
+.control{
+  width: 100%;
+  height: 110rpx;
+  margin-top: 10rpx;
+  margin-bottom:10rpx; 
+  display: flex;
+}
+.titlesbar{
+  display: flex;
+  width: 400rpx;
+  height: 80rpx;
+  padding: 15rpx;
+  margin-right: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.item{
+  flex: 1;
+  font-size: 40rpx;
+}
+.active{
+  color: #000;
+  font-size: 60rpx;
+}
+.control-image{
+  line-height: 130rpx;
+  margin: 0 auto;
+
+
+}
+.control-image image{
+  width: 60rpx;
+  text-align: center;
+}

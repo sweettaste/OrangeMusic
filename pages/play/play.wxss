@@ -1,0 +1,197 @@
+.play-bg {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    -webkit-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
+}
+
+.play-bg::after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    content: " ";
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ===播放器处理=== */
+.play-image{
+ margin-top: 170rpx;
+ padding: 0;
+ margin-bottom: 60rpx;
+}
+
+.view-stripe{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 4;
+  top: 0;
+}
+.view-stripe image{
+
+  width: 222rpx;
+  height: 366rpx;
+  margin: -60rpx 0 0 111rpx;
+  /* 改变白条的位置 */
+  transform-origin: 60rpx 60rpx;
+  /* 逆时针旋转25° */
+  transform: rotate(-25deg);
+  /* 过滤 */
+  transition: all linear 0.7s;
+
+}
+/* 
+当播放暂停时回到原来的位置 */
+.view-stripe .active{
+  transform: rotate(0);
+}
+
+/* 定义动画 */
+@keyframes rotary {
+   from {
+        transform: rotate(0deg);
+    }
+    to  {
+        transform: rotate(1turn);
+    }
+}
+.rotary {
+    /* transform-origin: center, center; */
+    animation: rotary 20s infinite linear;
+}
+
+.rotary.running {
+    animation-play-state: running;
+}
+
+.rotary.paused {
+    animation-play-state: paused;
+}
+
+
+.view-disc{
+   position: relative;
+   width: 588rpx;
+   height: 588rpx;
+   margin: auto;
+   animation: rotary 20s infinite linear;
+   animation-play-state: paused;
+
+}
+.running{
+  animation-play-state: running;
+}
+.paused{
+   animation-play-state: paused;
+}
+.disc{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  text-align: center;
+  overflow: hidden;
+}
+.disc image{
+  width: 588rpx;
+  height: 588rpx;
+}
+
+.song-light, .song-light image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 368rpx;
+  height: 368rpx;
+
+    /* transform: translateY(-50%) */
+}
+
+
+
+/* 歌词 */
+.lyric{
+
+  overflow: hidden;
+  position: absolute;
+  top: 40rpx;
+  bottom: 270rpx;
+  z-index: 7;
+  width: 100%;
+
+}
+
+
+
+/* 菜单 */
+.menu{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+}
+/* 上边的菜单 */
+.menu_actions{
+  display: flex;
+  margin: 0 60rpx;
+
+}
+.item{
+  position: relative;
+  flex: 1;
+  text-align: center;
+
+}
+.item image{
+  margin-left: 50rpx;
+  width: 85rpx;
+  height: 85rpx;
+}
+/* 进度条 */
+.slider{
+margin-left:20rpx;
+margin-right: 20rpx; 
+display: flex;
+/* //用于flex布局的y轴的对齐 */
+align-items: center;
+
+}
+.slider .font-time{
+  font-size: 25rpx;
+  color: rgba(255, 255, 255, 0.9)
+}
+/* 播放相关按钮 */
+.play_btn{
+  display: flex;
+  /* 用于设置按钮元素在x，y轴方向上的对齐方式 */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play_btn .cut{
+  width: 100rpx;
+}
+.play_btn .play{
+   width: 130rpx;
+}
+
+

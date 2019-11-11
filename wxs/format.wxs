@@ -1,0 +1,11 @@
+function countFormat(value) {
+  if (value < 10000) return value;
+  if (value < 100000000) {
+    return parseInt(value / 10000) + '万'
+  }
+  return parseInt(value / 100000000) + '亿'
+}
+
+module.exports = {
+  countFormat: countFormat
+}

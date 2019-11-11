@@ -1,0 +1,5 @@
+<!--pages/searchs/searchs.wxml-->
+<view>
+<serach-input/>
+
+</view>

@@ -1,0 +1,129 @@
+
+.control{
+  /* animation: searchTop .5s ease-in-out; */
+    width: 100%;
+    position: fixed;
+    margin-top: 0;
+    z-index: 100;
+    top: 0;
+   
+}
+.search-title{
+padding: 0 0 20rpx 20rpx;
+background: #008B8B;
+height: 60rpx;
+flex: 0 0 60rpx;
+color: #fff;
+}
+.search-all{
+display: flex;
+}
+/* .icon-input{
+  flex: 1;
+  height: 60rpx;
+  display: flex;
+} */
+.view-input{
+  flex: 1;
+  border-radius: 25rpx;
+  height: 60rpx;
+  overflow: hidden;
+  position: relative;
+}
+.view-input view{
+   position: absolute;
+   z-index: 10;
+   padding: 10rpx 15rpx;
+}
+.view-input input{
+    border: none;
+    color: #515151;
+    background-color: #ececec;
+    border-radius: 4rpx;
+    font-size: 28rpx;
+    padding: 0 60rpx;
+    box-sizing: border-box;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: block;
+}
+.input-search{
+  border-bottom: 1px solid #8d8787;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+  height: 70rpx;
+}
+.button button{
+  border: none;
+  color: #fff;
+}
+.search_result_wrap {
+    border-bottom: 1px solid #e2dcdc;
+    margin-top: 78rpx;
+    z-index: 100;
+    /* animation: searchTop .5s ease-in-out;
+    position: fixed;
+
+    background-color: white; */
+}
+.search_result{
+
+width: 100%;
+clear: both;
+/* border: 1px solid red; */
+
+}
+.searchResult_scroll {
+    height: 100rpx;
+    width: 750rpx;
+    overflow: scroll;
+    white-space: nowrap;
+    color: #504e4e;
+    line-height: 100rpx;
+    padding-left: 60rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+}
+
+.control-bar view{
+width:100%rpx;
+padding-left: 60rpx;
+line-height: 220rpx;
+height: 160rpx;
+color: #4d4949;
+font-weight: bold;
+}
+.search_list scroll-view{
+height: 100%;
+
+}
+
+
+.song-list{
+  width: 100%;
+  height: 100rpx;
+  padding-left: 60rpx;
+  margin-top: 20rpx;
+
+}
+.song-name{
+  height: 50rpx;
+  /* border: 1px solid green; */
+  font-size: 35rpx;
+}
+.song-info{
+   height: 40rpx;
+   font-size: 25rpx;
+   color: #8f8c8c;
+}
+swiper{
+  width: 100%;
+  padding: 0;
+  height: calc(100vh - 168.5rpx);
+
+}
+.swiper-item{
+
+  overflow: auto;
+}
+

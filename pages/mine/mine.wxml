@@ -1,0 +1,21 @@
+<!--pages/mine/mine.wxml-->
+
+<!--搜索框-->
+<search />
+<!--标题栏-->
+  <recommend titles="{{titles}}" bind:titleClick="handleTitleClick" id="recommend"/>
+  <!--滚动面板-->
+
+<swiper current='{{currIndex}}' 
+        duration='100'
+        bindchange='handleCurrentChange'
+        style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+    
+        <swiper-item class="discover-item">
+             <local/>
+        </swiper-item>
+         <swiper-item class="discover-item">
+             <songs/>
+        </swiper-item>
+       
+</swiper>
