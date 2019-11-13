@@ -1,5 +1,9 @@
 <!--pages/mine/mine.wxml-->
-
+<!-- 引入模板 -->
+<!-- <import src="../../template/pageplay/pageplay.wxml" />
+<template is="pp" data="{{music:music,playing:playing,playtype:playtype}}" /> -->
+<import src="../../template/pageplay/pageplay.wxml"/>
+<template is="pp" data="{{music:music,playing:playing}}" />
 <!--搜索框-->
 <search />
 <!--标题栏-->

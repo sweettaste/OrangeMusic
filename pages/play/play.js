@@ -63,7 +63,7 @@ Page({
       musicList: app.globalData.music_list,
       playMode: app.globalData.playMode,
     });
-    //播放音乐
+    //如果当前歌曲没有url或者换一首歌
    if((!app.globalData.currPlaying.url) || (app.globalData.currPlaying.id != id)){
      app.palyMusic(id,this);
    }else{

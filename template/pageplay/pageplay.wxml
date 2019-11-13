@@ -1,18 +1,20 @@
 <template name="pp">
-  <view id="pageplay" wx:if="{{music.id}}">
+  <view id="play" wx:if="{{music.id}}">
     <!-- 图片 -->
-    <view class='pageplay_img'>
+    <view class='pageplay_img' bind:tap="toPlay"  data-id="{{music.id}}">
       <image mode="aspectFill" src="{{music.al.picUrl||music.album.picUrl}}?param=600y600" />
     </view>
     <!-- 标题 -->
-    <view class='pageplay_title' bindtap="toplayview" data-id='{{music.id}}'>
+    <view class='pageplay_title' bind:tap="toPlay" data-id="{{music.id}}">
       <view>{{music.name||'暂无播放'}}</view>
-      <view>{{music.ar[0].name||music.artists[0].name}} -《{{music.al.name||music.album.name}}》</view>
+      <view>{{music.ar[0].name||music.artists[0].name}} </view>
     </view>
     <!-- 图标 -->
-    <view class='pageplay_icon' bindtap="toggleplay">
-      <view wx:if="{{!playing}}" class="iconfont icon-bofang" style="font-size:65rpx;color:black"></view>
-      <view wx:if="{{playing}}" class="iconfont icon-zanting" style="font-size:65rpx;color:black"></view>
+    <view class='pageplay_icon' bind:tap="changePlay">
+      <view wx:if="{{!playing}}" class="iconfont icon-bofang" style="font-size:65rpx;color:black">
+      </view>
+      <view wx:if="{{playing}}" class="iconfont icon-zanting" style="font-size:65rpx;color:black">
+      </view>
     </view>
     <!-- 菜单 -->
     <view class='pageplay_menu'>

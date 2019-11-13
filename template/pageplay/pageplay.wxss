@@ -1,4 +1,14 @@
-#pageplay {
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1265040 */
+  src: url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.eot');
+  src: url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1265040_jrqck9i8fg.svg#iconfont') format('svg');
+}
+#play {
   position: fixed;
   width: 100%;
   height: 120rpx;
@@ -8,7 +18,7 @@
   background: white;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
-  z-index: 100;
+  z-index: 50;
   align-items: center;
 }
 
@@ -25,7 +35,6 @@
 
 .pageplay_title {
   width: 50%;
-  /* margin-left: -20rpx; */
 }
 
 .pageplay_title view {
@@ -40,3 +49,23 @@
 .pageplay_menu {
   margin-left: 30rpx;
 }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-bofang:before {
+  content: "\e680";
+}
+.icon-zanting:before {
+  content: "\e6bd";
+}
+.icon-caidan1:before {
+  content: "\e604";
+}
+
+
+

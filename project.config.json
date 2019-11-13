@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.3",
 	"appid": "wx431bd907709b5161",
 	"projectname": "GraduationProject",
 	"debugOptions": {

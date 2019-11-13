@@ -33,9 +33,11 @@ Component({
   methods: {
     //点击搜索按钮
     getSearchName(event){
+      console.log(event)
+      const value = event.detail.value.name;
       //判断输入框的内容是否为空
-      if(this.data.searchValue != ''){
-           this.searchSongs();
+      if (value != ''){
+        this.searchSongs(value);
       }else{
         wx.showToast({
           title: '您还未输入内容',
@@ -44,9 +46,9 @@ Component({
       }
 
     },
-    searchSongs(){
+    searchSongs(value){
       //请求歌曲数据
-      getMusic(this.data.searchValue, (res) => {
+      getMusic(value, (res) => {
         //请求成功获取歌曲列表
         const songs = res.data.result.songs;
         this.setData({
@@ -58,12 +60,15 @@ Component({
     },
     //实时监听搜索框
     inputname(event){
+      console.log(event)
         //获得输入框内容
         const value = event.detail.value;
         //修改搜索的值
         this.setData({
           searchValue:value
-        })
+        });
+        //搜索提示
+      
 
     },
     //选择播放的歌曲

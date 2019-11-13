@@ -2,15 +2,6 @@
 /* .swiper{
   height:100%
 } */
-.container {
-
- 
-}
-
-.discover-item {
-
-
-
-}
+@import "../../template/pageplay/pageplay.wxss"
 
 
