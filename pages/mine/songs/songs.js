@@ -50,13 +50,6 @@ Component({
         })
       })
     },
-    // _getRecommendRadio() {
-    //   getRecommendRadio().then(res => {
-    //     this.setData({
-    //       recommendRadio: res.result
-    //     })
-    //   })
-    // }
   },
   pageLifetimes: {
     show: function () {
@@ -68,7 +61,6 @@ Component({
       // 1.请求网络数据
       this._getBannersData()
       this._getRecommendSongs()
-     // this._getRecommendRadio()
     }
 
   }

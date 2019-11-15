@@ -6,7 +6,7 @@
   </view>
  <!-- 播放器 -->
  <view>
-  <view class="play-image">
+  <view class="play-image" hidden="{{showLyric}}" bind:tap="toggleLyric">
     <view class="view-stripe">
       <image class="{{playing ? 'active':''}}" src="../../assets/icons/stripe.png" mode="widthFix"></image>
     </view>
@@ -21,28 +21,30 @@
     </view>
   </view> 
   <!-- 歌词部分  -->
-  <view class="lyric" hidden="{{!showLyric}}">
-    <view>
+  <view class="lyric" hidden="{{!showLyric}}" bind:tap="toggleLyric">
+   <view class="lyric-cont">
+     <view class="lyric-list" style='transform: translateY(-{{currLrcIndex*75}}rpx)'>
       <!-- 显示歌词 -->
-       <block wx:for="{{lyricList}}" wx:key="{{index}}">
-        <view>
-            {{item.lrc}}
+       <block wx:for="{{lyricList.lrc}}" wx:key="{{index}}" style="border:1px solid pink;"> 
+        <view  style='{{index == currLrcIndex - 6 || index == currLrcIndex - (-6) ? " opacity: 0.2;" : ""}}'>
+          <!-- {{index}}{{currLrcIndex}} -->
+          <text class="{{index == currLrcIndex ? 'current':''}}"> {{item.lrc}}</text>
         </view>
        </block>
     </view>
+   </view>
   </view>
  </view>
     <!-- 菜单栏 -->
-   <view class="menu">
-     <view class="menu_actions">
+   <view class="menu" >
+     <view class="menu_actions" hidden="{{showLyric}}">
     <!-- //喜欢收藏 -->
       <view class="item">
           <image src="../../assets/play/like.png"></image>
-             <image src="../../assets/play/down.png"></image>
-              <image src="../../assets/play/comment.png"></image>
-              <image src="../../assets/play/more.png"></image>
+          <image src="../../assets/play/down.png"></image>
+          <image src="../../assets/play/comment.png"></image>
+          <image src="../../assets/play/more.png"></image>
       </view>
-      
     </view>
     <!-- 进度条 -->
     <view class="slider">
@@ -65,12 +67,13 @@
         <image src="../../assets/play/play.png" mode="widthFix" class="play" hidden="{{!playing}}" bind:tap="palyIconChange"></image>
         <image src="../../assets/play/pause.png" mode="widthFix" hidden="{{playing}}" class="play" bind:tap="palyIconChange"></image>
         <image src="../../assets/play/next.png" mode="widthFix" class="cut" bind:tap="playNext"></image>
-        <image class="cut" src="../../assets/play/list.png" mode="widthFix"></image>
-
+        <image class="cut" src="../../assets/play/list.png" mode="widthFix" bind:tap="playList"></image>
     </view>
-
    </view>
-   
+   <!-- 歌单列表 -->
+   <view class="songs_list">
+   <songs_list />
+   </view>
 
 </view>
 

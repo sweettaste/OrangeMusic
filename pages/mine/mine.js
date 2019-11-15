@@ -28,16 +28,6 @@ Page({
       music: currPlaying,
       playing
     })
-    //获取屏幕宽度
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          clientHeight: res.windowHeight
-        });
-      }
-    });
-   
-
   },
 
   /**
@@ -147,17 +137,22 @@ Page({
       backgroundAudioManager.pause();
       playing = false;
       console.log('暂停播放');
+      //更新界面
+      app.globalData.playing = playing;
+      this.setData({
+        playing
+      });
     } else {
       //反之
       backgroundAudioManager.play();
       playing = true;
       console.log('开始播放');
+      //更新界面
+      app.globalData.playing = playing;
+      this.setData({
+        playing
+      });
     }
-    //更新界面
-    app.globalData.playing = playing;
-    this.setData({
-      playing
-    });
   },
   //去播放页面
   toPlay(event){
@@ -166,9 +161,6 @@ Page({
     wx.navigateTo({
       url: '../play/play?id=' + id
     }) 
-    // wx.navigateTo({
-    //   url: `../play / play ? id = ${id}`,
-    // })
   }
 
 })

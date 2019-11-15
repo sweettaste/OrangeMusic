@@ -1,7 +1,30 @@
 /* pages/mine/mine.wxss */
-/* .swiper{
-  height:100%
-} */
-@import "../../template/pageplay/pageplay.wxss"
+@import "../../template/pageplay/pageplay.wxss";
+.bg{
+   width: 100%;
+   height: 100%;
+  margin-right: 5rpx;
+}
+.mime{
+  z-index: 5;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+swiper{
+  width: 100%;
+  padding: 0;
+  height: calc(100vh - 168.5rpx);
+}
+.bable{
+    width: 100%; 
+    height:100%;
+    position: absolute;
+    top: 200rpx;
+}
+
+
+
 
 

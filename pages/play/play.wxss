@@ -31,7 +31,6 @@
 .play-image{
  margin-top: 170rpx;
  padding: 0;
- margin-bottom: 60rpx;
 }
 
 .view-stripe{
@@ -125,19 +124,38 @@
     /* transform: translateY(-50%) */
 }
 
-
-
 /* 歌词 */
 .lyric{
-
   overflow: hidden;
   position: absolute;
-  top: 40rpx;
+  top: 90rpx;
   bottom: 270rpx;
   z-index: 7;
   width: 100%;
-
 }
+.lyric-cont {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 525rpx;
+    font-size: 33rpx;
+    text-align: center;
+}
+.lyric-list{
+  transition: all ease 500ms;
+}
+
+.lyric-list view{
+  line-height: 75rpx;
+  width: 100%;
+  color: #fff;
+  opacity: 0.5;
+}
+.current{
+  color: #008B8B;
+  font-size: 37rpx;
+}
+
 
 
 
@@ -192,6 +210,12 @@ align-items: center;
 }
 .play_btn .play{
    width: 130rpx;
+}
+
+
+/* 歌单列表 */
+.songs_list{
+  
 }
 
 

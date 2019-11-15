@@ -5,10 +5,8 @@
 //   const hour = date.getHours()
 //   const minute = date.getMinutes()
 //   const second = date.getSeconds()
-
 //   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 // }
-
 const formatTime = time => {
   time = new Date(time);
   return formatNumber(time.getMinutes()) + ':' + formatNumber(time.getSeconds());
@@ -17,11 +15,9 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
 module.exports = {
   formatTime: formatTime
 }
-
 
 const trim = (str) => {
   return str.replace(/(^\s *)| (\s * $)/g, '');

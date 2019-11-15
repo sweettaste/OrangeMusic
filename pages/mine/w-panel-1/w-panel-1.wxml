@@ -7,7 +7,7 @@
 <view class='song-container'>
   <block wx:for="{{datalist}}" wx:key="{{index}}">
     <view class='song-item'>
-      <image src="{{item.picUrl}}" mode='widthFix'/>
+      <image src="{{item.picUrl}}" bind:tap="songsList" data-id="{{item.id}}" mode='widthFix'/>
       <view class='text'>{{item.name}}</view>
       <view class='counter' hidden='{{!item.playCount}}'>
         <image src="/assets/icons/listen_music.png"/>

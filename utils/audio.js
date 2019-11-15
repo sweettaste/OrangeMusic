@@ -44,5 +44,38 @@ const baseUrl = 'https://netease.lzcdev.xyz/' ;
       }
     }
     }
+  });
+}
+//获取歌曲详细信息
+export function getDetail(id, success){
+  wx.request({
+    url: `${baseUrl}song/detail`,
+    data:{
+      "ids":id
+    },
+    header:{
+      'Content-Type': 'application/json'
+    },
+    success(res){
+      //请求成功回调app的success
+       if(res.data.code === 200){
+         success(res);
+       }
+    }
+  })
+}
+//获取歌词
+export function getLyric(id,success){
+  wx.request({
+    url: `${baseUrl}lyric`,
+    data:{
+      id
+    },
+    success(res){
+      if (res.data.code === 200) {
+        success(res);
+      }
+      console.log(res)
+    }
   })
 }

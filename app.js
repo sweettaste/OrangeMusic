@@ -1,6 +1,6 @@
 //app.js
 var WxNotificationCenter = require("./utils/WxNotificationCenter.js");
-const { getMusicUrl } = require('./utils/audio.js');
+const { getMusicUrl, getDetail, getLyric} = require('./utils/audio.js');
 const util = require('./utils/util.js');
 App({
   onLaunch: function () {
@@ -24,7 +24,6 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -96,7 +95,6 @@ App({
         playing:false
       });
     });
-
     //音频播放自然结束事件
     backgroundAudioManager.onEnded(() => {
       const glob = this.globalData;
@@ -116,7 +114,6 @@ App({
       }
     })
   },
-
   //切换
   playNext(id,th){
     const glob = this.globalData;
@@ -156,48 +153,50 @@ App({
   //播放音乐
   palyMusic(id,$this) {
     // let $this = this;
-    //发送请求
+    //获取歌曲详细
     console.log(id)
-    const baseUrl = 'https://netease.lzcdev.xyz/';
-    wx.request({
-      url: baseUrl + 'song/detail?ids=' + id,
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: (res) => {
-        if (res.statusCode == 200) {
-          //获得当前播放歌曲
-          const song = res.data.songs[0];
-          //全局设置播放当前歌曲
-         this.globalData.currPlaying = song;
-          if (!this.globalData.music_list.length) {
-            // 将歌曲添加到播放列表
-            this.globalData.music_list.push(song);
-          }
-          console.log(this.globalData.music_list)
-          //刷新播放页面
-          $this.setData({
-            //更新当前歌曲信息
-            music: song,
-            //获取歌曲总时长并转换格式
-            duration: util.formatTime(this.globalData.currPlaying.dt),
-            //设置进度条最大值为当前播放歌曲的时间
-            sliderMax: Math.floor(this.globalData.currPlaying.dt)
-          })
-
-          //获取歌曲url
-          getMusicUrl(this.globalData.currPlaying.id, (url) => {
-            this.globalData.currPlaying.url = url;
-            this.updateMusic($this);
-            //调用app.playAudio播放音乐
-            this.playAudio($this);
-          }, () => this.playNext(1, $this));
-          //设置当前界面标题
-          wx.setNavigationBarTitle({
-            title: `${this.globalData.currPlaying.name}-${this.globalData.currPlaying.ar[0].name}`,
-          })
-          //获取歌词 
+    getDetail(id,(res) => {
+      if (res.statusCode == 200) {
+        //获得当前播放歌曲
+        const song = res.data.songs[0];
+        //全局设置播放当前歌曲
+        this.globalData.currPlaying = song;
+        this.globalData.nearestPlay.push(song);
+        if (!this.globalData.music_list.length) {
+          // 将歌曲添加到播放列表
+          this.globalData.music_list.push(song);
         }
+        //刷新播放页面
+        $this.setData({
+          //更新当前歌曲信息
+          music: song,
+          //获取歌曲总时长并转换格式
+          duration: util.formatTime(this.globalData.currPlaying.dt),
+          //设置进度条最大值为当前播放歌曲的时间
+          sliderMax: Math.floor(this.globalData.currPlaying.dt)
+        })
+        //获取歌曲url
+        getMusicUrl(this.globalData.currPlaying.id, (url) => {
+          this.globalData.currPlaying.url = url;
+          this.updateMusic($this);
+          //调用app.playAudio播放音乐
+          this.playAudio($this);
+        }, () => this.playNext(1, $this));
+        //设置当前界面标题
+        wx.setNavigationBarTitle({
+          title: `${this.globalData.currPlaying.name}-${this.globalData.currPlaying.ar[0].name}`,
+        })
+        //获取歌词 
+        getLyric(id,(res) => {
+         // const lyric = res.data.lrc.lyric;
+          let lyric = util.parse_lrc(res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : '')
+             console.log(lyric);
+          res.data.lrc = lyric.now_lrc;
+          res.data.scroll = lyric.scroll ? 1 : 0;
+          $this.setData({
+            lyricList: res.data,  
+          })
+        })
       }
     })
   },
@@ -214,11 +213,7 @@ App({
       duration: util.formatTime(this.globalData.currPlaying.dt),
       sliderMax: Math.floor(this.globalData.currPlaying.dt),
     });
-    
   },
-
-
-
   //初始化配置
   globalData: {
       music_list:[],//歌曲播放列表
@@ -228,7 +223,7 @@ App({
       playMode:1,//播放类型 1 列表循环 2 单曲循环 3 随机播放
       playing:false,//是否正在播放默认为false
       currPostion:0,//记录播放位置
+      nearestPlay:[],//最近播放记录
       backgroundAudioManager: wx.getBackgroundAudioManager()//获取全局唯一的背景音频管理器
-
   }
 })

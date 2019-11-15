@@ -1,13 +1,9 @@
 // pages/play/paly.js
-const {getMusicUrl} = require('../../utils/audio.js');
+const { getMusicUrl, getLyric} = require('../../utils/audio.js');
 const util = require('../../utils/util.js');
 const app = getApp();
 const backgroundAudioManager = app.globalData.backgroundAudioManager;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     //歌曲信息
     music:{},
@@ -22,7 +18,9 @@ Page({
     //歌曲列表
     musicList:[],
     //歌词列表
-    lyricList:[],
+    lyricList: [], 
+    //歌词index
+    currLrcIndex:[],
     //当前播放歌曲index
     currIndex:0,
     //进度条滑块最大值
@@ -77,37 +75,47 @@ Page({
      wx.setNavigationBarTitle({
        title: `${app.globalData.currPlaying.name}-${app.globalData.currPlaying.ar[0].name}`,
      });
+     //获取歌词 
+     getLyric(app.globalData.currPlaying.id, (res) => {
+       // const lyric = res.data.lrc.lyric;
+       let lyric = util.parse_lrc(res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : '')
+       console.log(lyric);
+       res.data.lrc = lyric.now_lrc;
+       res.data.scroll = lyric.scroll ? 1 : 0;
+       this.setData({
+         lyricList: res.data,
+       })
+     })
    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     //监听背景音频播放进度更新事件，只有小程序在前台时会回调
     backgroundAudioManager.onTimeUpdate(() => {
+      let currLrcIndex = 0;
       //获取当前音频的播放位置
-      const { currentTime } = backgroundAudioManager;
+      if (this.data.showLyric){
+        for(let k in this.data.lyricList.lrc){
+          const value = this.data.lyricList.lrc[k];
+          if (value.lrc_sec <= backgroundAudioManager.currentTime){
+            console.log(k)
+            currLrcIndex = k;
+          }
+        }
+      }
       //更新进度条，更新当前播放进度
+      // console.log(this.data.currLrcIndex)
+      // console.log(currLrcIndex)
       this.setData({
-        sliderValue: Math.floor(currentTime*1000),
-        currTime: util.formatTime(Math.floor(currentTime * 1000))
+        currLrcIndex: currLrcIndex,
+        sliderValue: Math.floor(backgroundAudioManager.currentTime*1000),
+        currTime: util.formatTime(Math.floor(backgroundAudioManager.currentTime * 1000))
       })
     })
   },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -174,5 +182,17 @@ Page({
         duration:1000,
         icon:"none"
       })
+  },
+  //切换显示
+  toggleLyric(event){
+    let showLyric = this.data.showLyric;
+    console.log(this.data.lyricList)
+    this.setData({
+      showLyric:!showLyric
+    })
+  },
+  //歌曲列表
+  playList(event){
+
   }
-})
+  })

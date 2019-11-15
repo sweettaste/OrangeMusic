@@ -11,14 +11,3 @@ export function getRecommendSongs() {
     url: 'http://123.207.32.32:9000/personalized?limit=6'
   })
 }
-
-export function getRecommendRadio() {
-  return request({
-    url: 'http://123.207.32.32:9000/personalized/djprogram'
-  })
-}
-export function baseUrl(){
-  return request({
-    url:'https://netease.lzcdev.xyz/'
-  })
-}
