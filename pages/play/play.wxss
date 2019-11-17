@@ -212,10 +212,54 @@ align-items: center;
    width: 130rpx;
 }
 
-
 /* 歌单列表 */
-.songs_list{
+/* pages/play/list/list.wxss */
+.container{
+  margin-top: -20rpx;
+  border-radius: 30rpx 30rpx 0 0 ;
+  background: #fff;
+  width: 100%;
+  padding: 0;
+  z-index: 80;
+}
+.list-title{
+  border-bottom: 1px solid #ededed;
+  height: 70rpx;
+  padding: 10rpx 15rpx;
+  width: 100%;
+  align-items: center;
+  font-size: 40rpx;
+  margin-left: 45rpx;
+}
+.panel-list{
+  margin-left: 5rpx;
+  width: 100%;
+}
+.panel-list scroll-view{
+    height: 650rpx;
+    width: 100%;
+}
+.content-item ,.content-item>view {
+  font-size: 30rpx;
+  display: flex;
   
+}
+.content-item{
+  margin-left: 10rpx;
+   height: 70rpx;
+   width: 100%;
+   padding-right: 20rpx;
+     align-items: center;
+}
+.list-image{
+  margin-left: 5rpx;
+}
+.list-image image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.active{
+  color: rgb(202, 25, 25);
 }
 
 

@@ -2,7 +2,7 @@
 
 
     <view class="search">
-      <view >
+      <view  class="icon">
         <icon type="search" size="16" color="#aaa" />
       </view>
       <input type="text" placeholder="请输入歌手或歌曲名" class="control" placeholder-class="hint" bindfocus="handleSearch"></input>

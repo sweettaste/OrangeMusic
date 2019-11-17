@@ -2,7 +2,7 @@
 // const request = require('network.js');
 
 const baseUrl = 'https://netease.lzcdev.xyz/' ;
- 
+
 //获取歌曲列表
  export function getMusic(searchValue,success){
   wx.request({
@@ -64,7 +64,7 @@ export function getDetail(id, success){
     }
   })
 }
-//获取歌词
+  //获取歌词
 export function getLyric(id,success){
   wx.request({
     url: `${baseUrl}lyric`,
@@ -75,7 +75,44 @@ export function getLyric(id,success){
       if (res.data.code === 200) {
         success(res);
       }
-      console.log(res)
+    }
+  })
+} 
+  //获取排行榜列表
+  export function getTopList(id,success){
+      wx.request({
+        url: `${baseUrl}top/list`,
+        data:{
+          "idx":id
+        },
+        header:{
+          'Content-Type': 'application/json'
+        },
+        success(res){
+          if (res.data.code === 200) {
+            success(res);
+            console.log("排行榜回调")
+          }
+         
+        }
+      })
+  }
+  //获取推荐歌单
+export function getRecommendList(id, success){
+  wx.request({
+    url: `${baseUrl}playlist/detail`,
+    data:{
+      id
+    },
+    header: {
+      'Content-Type': 'application/json'
+    },
+    success(res){
+      if (res.data.code === 200) {
+        success(res);
+        console.log("推荐歌单回调")
+      }
     }
   })
 }
+

@@ -15,7 +15,7 @@ Component({
    */
   data: {
   
-    currIndex:0
+    currIndex:1
   },
 
   /**

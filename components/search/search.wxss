@@ -28,5 +28,5 @@
 .search view{
    position: absolute;
    z-index: 1;
-   padding: 15rpx 20rpx;
+   padding: 20rpx 20rpx;
 }

@@ -8,5 +8,4 @@
   <input class="input" name="input" placeholder="请输入手机号码" />
   <button class="login">登录</button>
 </view>
-
 </view>

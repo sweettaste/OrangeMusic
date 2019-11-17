@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currIndex: 0,
+    currIndex: 1,
     clientHeight:0.0,
     titles:['我的','推荐'],
     // 底部播放模板
@@ -41,7 +41,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("----")
     // 处理播放栏
     // WxNotificationCenter.addNotification("music", (res) => {
     //   console.log(res)

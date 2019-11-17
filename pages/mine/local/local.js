@@ -16,7 +16,7 @@ Component({
    */
   data: {
     titles: [
-      { title: '本地音乐', icon: '../../../assets/mime/musics.png' },
+      { title: '喜欢的音乐', icon: '../../../assets/mime/mimelike.png' },
       { title: '最近播放', icon: '../../../assets/mime/nearest.png' },
       { title: '下载管理', icon: '../../../assets/mime/down.png' }
     ],

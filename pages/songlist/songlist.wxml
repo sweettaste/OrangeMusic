@@ -1,0 +1,61 @@
+<view class="play-bg" style="background-image:url({{songsInfo.coverImgUrl}})" />
+    <view class="main">
+      <!-- 上半部分标题图片 -->
+      <view class="songs-title">
+        <view class="pic-image">
+        <!-- 歌单图片 -->
+          <image src="{{songsInfo.coverImgUrl}}" mode="widthFix"></image>
+        </view>
+        <view class="content-title">
+          <view class="title">
+              {{songsInfo.name}}
+          </view>
+          <view class="info">
+            <view class="info-pic">
+              <image src="{{songsInfo.creator.avatarUrl}}" mode="widthFix"></image>
+            </view>
+            <view class="info-name">
+             {{songsInfo.creator.nickname}}
+            </view>
+          </view>
+            <view class="content-detail">
+           {{songsInfo.description}}
+            </view>
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class="containers">
+        <view class="container-content">
+            <!-- 引入播放按钮 -->
+            <view class="iconfont icon-bofang" style="font-size:65rpx;color:black" bind:tap="playAll" >
+            </view>
+             <view class="text" bind:tap="playAll"> 
+                <text class="play-all">播放全部</text>
+                <text class="play-number">(共{{songsInfo.trackIds.length}}首)</text>
+              </view>
+            </view>
+            <!-- 歌曲 -->
+            <view class="control">
+              <block wx:for="{{songsInfo.tracks}}" wx:key="{{index}}">
+                <view class="array-info" bind:tap="playMusic" data-id="{{item.id}}">
+                    <!-- 下标 -->
+                <view class="list-index">
+                   <view class="list-image" wx:if="{{item.id == music.id}}">
+                    <image src="../../assets/play/voice.png"></image>
+                  </view>
+                  <view class="index {{item.id == music.id ? 'current':''}}" >{{index+1}}</view>
+                </view>
+                <view class="list-info">
+                  <view class="music-name">
+                    {{item.al.name}}
+                  </view> 
+                  <view class="music-writer">
+                    {{item.ar[0].name}}
+                  </view>
+                </view>
+                </view>
+              </block>
+            </view>
+          </view>
+    </view>
+

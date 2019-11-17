@@ -110,7 +110,6 @@ App({
         this.playAudio(th);
       }else{
         this.playNext(1,th);
-        console.log("----")
       }
     })
   },
@@ -119,7 +118,6 @@ App({
     const glob = this.globalData;
     //当前music_list为空
     const { music_list, currPlaying,palyMode} = glob;
-    console.log(music_list)
     let playIndex = 0;
    if(palyMode == 3){
      //随机播放下一首
@@ -145,16 +143,12 @@ App({
     glob.currPlaying = music_list[playIndex];
     //更改当前播放歌曲在列表中的index
     glob.index_music = playIndex;
-    //向服务器请求歌曲
-    console.log(this.globalData.currPlaying);
     //请求资源
     this.palyMusic(glob.currPlaying.id,th);
   },
   //播放音乐
   palyMusic(id,$this) {
-    // let $this = this;
     //获取歌曲详细
-    console.log(id)
     getDetail(id,(res) => {
       if (res.statusCode == 200) {
         //获得当前播放歌曲
@@ -190,7 +184,6 @@ App({
         getLyric(id,(res) => {
          // const lyric = res.data.lrc.lyric;
           let lyric = util.parse_lrc(res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : '')
-             console.log(lyric);
           res.data.lrc = lyric.now_lrc;
           res.data.scroll = lyric.scroll ? 1 : 0;
           $this.setData({
@@ -206,8 +199,6 @@ App({
     if ($this.data.music.id === this.globalData.currPlaying.id ){
         return;
       }
-      //获取评论
-      //更新歌词
     $this.setData({
       music: this.globalData.currPlaying,
       duration: util.formatTime(this.globalData.currPlaying.dt),

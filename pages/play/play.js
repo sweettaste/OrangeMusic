@@ -88,6 +88,9 @@ Page({
      })
    }
   },
+  onReady: function () {
+    this.drawer = this.selectComponent('#drawer');
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -100,7 +103,6 @@ Page({
         for(let k in this.data.lyricList.lrc){
           const value = this.data.lyricList.lrc[k];
           if (value.lrc_sec <= backgroundAudioManager.currentTime){
-            console.log(k)
             currLrcIndex = k;
           }
         }
@@ -192,7 +194,28 @@ Page({
     })
   },
   //歌曲列表
+  //列表操作
+  _cancelDrawer() {
+    console.log("列表收起")
+    this.drawer.hideDrawer();
+  },
+  _confirmDrawer() {
+    console.log("列表收起")
+    this.drawer.hideDrawer();
+  },
+  showDrawer(event) {
+    console.log("列表展开")
+    this.drawer.showDrawer();
+  },
+  //列表跳转指定某一首歌曲
   playList(event){
-
+    console.log(event)
+    let id = event.currentTarget.dataset.id;
+    if ((!app.globalData.currPlaying.url) || (app.globalData.currPlaying.id != id)) {
+      app.palyMusic(id, this);
+    } else {
+        //收起列表
+      _cancelDrawer();
   }
-  })
+  }
+})
