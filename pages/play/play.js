@@ -29,6 +29,8 @@ Page({
     sliderValue:0,
     //播放类型
     playMode:1,
+    isLike:false,
+    likeMusic:[],
     //播放模式
     playModeIcon:[{
       id: 1,
@@ -45,9 +47,10 @@ Page({
         name: '随机播放',
         icon: '../../assets/play/random.png'
       }
-    ]
+    ],
 
   },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -67,10 +70,19 @@ Page({
    }else{
      //继续当前状态
      this.setData({
-       music:app.globalData.currPlaying,
-       duration:util.formatTime(app.globalData.currPlaying.dt),
-       sliderMax:Math.floor(app.globalData.currPlaying.dt)
+       music: app.globalData.currPlaying,
+       duration: util.formatTime(app.globalData.currPlaying.dt),
+       sliderMax: Math.floor(app.globalData.currPlaying.dt)
      });
+   
+     for(let k in app.globalData.likeMusic.length){
+       if(music.id === app.globalData.likeMusic[k].id){
+         this.setData({
+           isLike:true
+         });
+         break;
+       }
+     }
      // 设置当前界面标题
      wx.setNavigationBarTitle({
        title: `${app.globalData.currPlaying.name}-${app.globalData.currPlaying.ar[0].name}`,
@@ -217,5 +229,32 @@ Page({
         //收起列表
       _cancelDrawer();
   }
+  },
+  toggleLike(){
+    console.log("toggleLike")
+    let isLike = this.data.isLike;
+    this.setData({
+      isLike: !isLike
+    })
+    //把喜欢的歌曲的id存到数组里
+    let id = this.data.music.id;
+    let index = 0,rs = false ;
+   for(let k in app.globalData.likeMusic.length){
+      if( id === app.globalData.likeMusic[k].id){
+        console.log("存在");
+          rs = true;
+          index = k;
+          break;
+      }
+   }
+   //移除
+    if (rs){
+      console.log("移除")
+      app.globalData.likeMusic.splice(index,1);
+   }else{
+      console.log("添加");
+      app.globalData.likeMusic.push(this.data.music)
+   }
+    console.log(app.globalData.likeMusic)
   }
 })

@@ -11,6 +11,22 @@
           </view >
         </block>
       </view>
+      <!-- 喜欢 -->
+      <view class="like-songs" >
+        <view class="like-titie">
+          <text>心动歌单</text>
+          <image src="/assets/icons/arrow.png"/>
+        </view>
+        <view class="my-like" bind:tap="toLikeSongs">
+          <view class="pic">
+              <image src="../../../assets/mime/like.png"></image>
+          </view>
+         <view class="like-item">
+            <view class="item-name">我喜欢的音乐</view>
+            <view class="item-count">{{likeMusic.length}}首</view>
+         </view> 
+        </view>
+      </view>
       <!--推荐歌单-->
       <w-panel-1 title="推荐歌单" datalist="{{recommendSongs}}" />
     </scroll-view>

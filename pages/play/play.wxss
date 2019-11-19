@@ -229,7 +229,7 @@ align-items: center;
   width: 100%;
   align-items: center;
   font-size: 40rpx;
-  margin-left: 45rpx;
+  margin-left: 150rpx;
 }
 .panel-list{
   margin-left: 5rpx;
@@ -240,19 +240,16 @@ align-items: center;
     width: 100%;
 }
 .content-item ,.content-item>view {
-  font-size: 30rpx;
   display: flex;
   
 }
 .content-item{
-  margin-left: 10rpx;
-   height: 70rpx;
-   width: 100%;
-   padding-right: 20rpx;
-     align-items: center;
+  height: 80rpx;
+  width: 100%;
+  align-items: center;
 }
 .list-image{
-  margin-left: 5rpx;
+
 }
 .list-image image{
   width: 40rpx;
@@ -260,6 +257,18 @@ align-items: center;
 }
 .active{
   color: rgb(202, 25, 25);
+}
+.list-info{
+   font-size: 35rpx;
+   width: 600rpx;
+   height: 55rpx;
+   overflow: hidden;
+   text-overflow: ellipsis;
+    /* 多行文本溢出，webkit私有属性 */
+  -webkit-line-clamp: 1;
+  /* 多行文本溢出必须配合以下属性使用 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 

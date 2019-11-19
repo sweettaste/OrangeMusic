@@ -1,4 +1,5 @@
 /* pages/songlist/songlist.wxss */
+@import "../../template/pageplay/pageplay.wxss";
 .play-bg{
   background-repeat: no-repeat;
   background-size: cover;
@@ -147,7 +148,7 @@
 }
 .list-index{
 
-
+  width: 90rpx;
   padding-top: 28rpx;
 }
 .index{
@@ -155,10 +156,21 @@
   font-size: 30rpx;
 }
 .list-info{
-    margin-left: 30rpx;
+
+  width: 500rpx;
+  overflow: hidden;
+   text-overflow: ellipsis;
+    /* 多行文本溢出，webkit私有属性 */
+  -webkit-line-clamp: 1;
+  /* 多行文本溢出必须配合以下属性使用 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 .music-name{
   font-size: 35rpx;
+  width: 100%;
+  height: 55rpx;
+  overflow: hidden;
   color: #000;
 }
 .list-image image{
@@ -167,7 +179,7 @@
 }
 .music-writer{
    color: #7e7a7a;
-  font-size: 27rpx;
+   font-size: 27rpx;
 }
 .current{
   display: none;

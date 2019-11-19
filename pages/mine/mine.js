@@ -50,10 +50,10 @@ Page({
     //     isShow: res.music_list.length
     //   });
     // }, this);
-    const { currPlaying, playing } = app.globalData;
+    //const { currPlaying, playing } = app.globalData;
     this.setData({
-      music: currPlaying,
-      playing
+      music: app.globalData.currPlaying,
+      playing: app.globalData.playing
     })
   },
 

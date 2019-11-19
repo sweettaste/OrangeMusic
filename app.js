@@ -117,7 +117,7 @@ App({
   playNext(id,th){
     const glob = this.globalData;
     //当前music_list为空
-    const { music_list, currPlaying,palyMode} = glob;
+    const { music_list, currPlaying , palyMode} = glob;
     let playIndex = 0;
    if(palyMode == 3){
      //随机播放下一首
@@ -198,6 +198,8 @@ App({
     //判断一下music的ID是否跟当前播放歌曲的id相同
     if ($this.data.music.id === this.globalData.currPlaying.id ){
         return;
+      }else{
+      music: this.globalData.currPlaying 
       }
     $this.setData({
       music: this.globalData.currPlaying,
@@ -215,6 +217,7 @@ App({
       playing:false,//是否正在播放默认为false
       currPostion:0,//记录播放位置
       nearestPlay:[],//最近播放记录
+      likeMusic:[],//喜欢的歌曲
       backgroundAudioManager: wx.getBackgroundAudioManager()//获取全局唯一的背景音频管理器
   }
 })

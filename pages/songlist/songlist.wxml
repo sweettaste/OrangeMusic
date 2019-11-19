@@ -1,3 +1,5 @@
+<import src="../../template/pageplay/pageplay.wxml"/>
+<template is="pp" data="{{music:music,playing:playing}}" />
 <view class="play-bg" style="background-image:url({{songsInfo.coverImgUrl}})" />
     <view class="main">
       <!-- 上半部分标题图片 -->
@@ -31,7 +33,7 @@
             </view>
              <view class="text" bind:tap="playAll"> 
                 <text class="play-all">播放全部</text>
-                <text class="play-number">(共{{songsInfo.trackIds.length}}首)</text>
+                <text class="play-number">(共{{songsInfo.tracks.length}}首)</text>
               </view>
             </view>
             <!-- 歌曲 -->
@@ -40,17 +42,17 @@
                 <view class="array-info" bind:tap="playMusic" data-id="{{item.id}}">
                     <!-- 下标 -->
                 <view class="list-index">
-                   <view class="list-image" wx:if="{{item.id == music.id}}">
+                   <view class="list-image" hidden="{{item.id != music.id}}">
                     <image src="../../assets/play/voice.png"></image>
                   </view>
-                  <view class="index {{item.id == music.id ? 'current':''}}" >{{index+1}}</view>
+                  <view class="index {{item.id == music.id ? 'current':''}}"  hidden="{{item.id == music.id}}">{{index+1}}</view>
                 </view>
                 <view class="list-info">
                   <view class="music-name">
-                    {{item.al.name}}
+                    {{item.name}}
                   </view> 
                   <view class="music-writer">
-                    {{item.ar[0].name}}
+                   {{item.al.name}} - {{item.ar[0].name}}
                   </view>
                 </view>
                 </view>
