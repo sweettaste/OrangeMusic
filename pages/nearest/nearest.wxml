@@ -1,0 +1,28 @@
+<!-- 标题栏 -->
+<import src="../../template/pageplay/pageplay.wxml"/>
+<template is="pp" data="{{music:music,playing:playing}}" />
+<view class="nearest-bg">
+  <view class="title">
+    歌曲
+  </view>
+  <view class="nearest-song">
+    <scroll-view scroll-y>
+      <block wx:for="{{nearestPlay}}" wx:key="{{index}}">
+        <view class="songs-info">
+          <view class="songs-index" bind:tap="playMusic" data-id="{{item.id}}">
+            <view hidden="{{item.id != music.id}}">
+              <image src="../../assets/play/voice.png"></image>
+            </view>
+            <text hidden="{{item.id == music.id}}">{{index+1}}</text>
+          </view>
+          <view class="detail">
+            <view class="detail-name">
+              {{item.name}}
+            </view>
+            <view class="detail-al-name">{{item.al.name}} - {{item.ar[0].name}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

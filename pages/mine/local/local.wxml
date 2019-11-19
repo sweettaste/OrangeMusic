@@ -3,7 +3,7 @@
       <!--选择项-->
       <view class="tab-control">
         <block wx:for="{{titles}}" wx:key="{{index}}">
-          <view class="tab-item">
+          <view class="tab-item" bind:tap="toNearest" data-index="{{index}}">
             <view class="item-icon">
               <image src="{{item.icon}}" mode='widthFix'></image>
             </view>

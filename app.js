@@ -155,7 +155,10 @@ App({
         const song = res.data.songs[0];
         //全局设置播放当前歌曲
         this.globalData.currPlaying = song;
-        this.globalData.nearestPlay.push(song);
+        //将播放的歌曲加到最近播放里
+        if( this.indexOf(this.globalData.nearestPlay,song.id) < 0){
+            this.globalData.nearestPlay.push(song)
+        }
         if (!this.globalData.music_list.length) {
           // 将歌曲添加到播放列表
           this.globalData.music_list.push(song);
@@ -206,6 +209,15 @@ App({
       duration: util.formatTime(this.globalData.currPlaying.dt),
       sliderMax: Math.floor(this.globalData.currPlaying.dt),
     });
+  },
+  //判断当前id是否在列表里
+  indexOf( obj , value){
+    for(let k in obj.length){
+      if(obj[k].id == value){
+        return k;
+      }
+    }
+    return -1;
   },
   //初始化配置
   globalData: {

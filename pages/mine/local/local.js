@@ -49,6 +49,14 @@ Component({
         })
       })
     },
+    toNearest(event) {
+      console.log(event)
+      if (event.currentTarget.dataset.index == 0) {
+        wx.navigateTo({
+          url: '../../../../nearest/nearest',
+        })
+      }
+    },
     //去歌单页面
     toLikeSongs(event){
       console.log(event)
