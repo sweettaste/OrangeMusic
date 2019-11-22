@@ -67,5 +67,62 @@
   content: "\e604";
 }
 
+.container{
+  margin-top: -20rpx;
+  border-radius: 30rpx 30rpx 0 0 ;
+  background: #fff;
+  width: 100%;
+  padding: 0;
+  z-index: 80;
+}
+.list-title{
+  border-bottom: 1px solid #ededed;
+  height: 70rpx;
+  padding: 10rpx 15rpx;
+  width: 100%;
+  align-items: center;
+  font-size: 40rpx;
+  margin-left: 150rpx;
+}
+.panel-list{
+  margin-left: 5rpx;
+  width: 100%;
+}
+.panel-list scroll-view{
+    height: 650rpx;
+    width: 100%;
+}
+.content-item ,.content-item>view {
+  display: flex;
+  
+}
+.content-item{
+  height: 80rpx;
+  width: 100%;
+  align-items: center;
+}
+.list-image{
+
+}
+.list-image image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.active{
+  color: rgb(202, 25, 25);
+}
+.list-info{
+   font-size: 35rpx;
+   width: 600rpx;
+   height: 55rpx;
+   overflow: hidden;
+   text-overflow: ellipsis;
+    /* 多行文本溢出，webkit私有属性 */
+  -webkit-line-clamp: 1;
+  /* 多行文本溢出必须配合以下属性使用 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
 
 

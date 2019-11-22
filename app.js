@@ -102,7 +102,8 @@ App({
       this.globalData.playing = false;
       //刷新播放界面
       th.setData({
-        playing:false
+        playing:false,
+        isLike :false
       });
       //单曲循环
       if (glob.playMode === 2){

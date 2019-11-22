@@ -4,8 +4,39 @@
 <view class="view-image">
   <image src="../../assets/icons/login.png" mode="widthFix"> </image>
 </view>
-<view>
-  <input class="input" name="input" placeholder="请输入手机号码" />
-  <button class="login">登录</button>
+<form bindsubmit="getTel">
+ <!-- <view class="gettel-info"> -->
+  <view class="input">
+  <input  name="tel" placeholder="请输入手机号码" />
+  </view>
+  <view class="input">
+  <input  name="pwd" placeholder="密码" type="password" />
+  </view>
+  <view class="get">
+   <button form-type="submit" plain style="border:none">登录</button>
+  </view>
+ <!-- </view> -->
+</form>
+
+<view class="other">
+  <view>
+    <button class="button" bind:tap="register" data-id="1">注册</button>
+  </view>
+  <view>
+    <button class="button" bind:tap="register" data-id="2">短信验证</button>
+  </view>
+
+
 </view>
+<!-- 输入验证码
+<view>
+  <form bindsubmit="getCode">
+  <view class="input">
+  <input  name="input" placeholder="请输入验证码" />
+  </view>
+  <view class="login">
+   <button form-type="submit" plain style="border:none">登录</button>
+  </view>
+  </form>
+</view> -->
 </view>

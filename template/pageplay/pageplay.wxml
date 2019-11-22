@@ -21,4 +21,5 @@
       <view class="iconfont icon-caidan1" style="font-size:65rpx;color:black"></view>
     </view>
   </view>
+
 </template>

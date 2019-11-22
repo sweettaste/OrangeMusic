@@ -89,11 +89,9 @@ Page({
      });
      //获取歌词 
      getLyric(app.globalData.currPlaying.id, (res) => {
-       // const lyric = res.data.lrc.lyric;
        let lyric = util.parse_lrc(res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : '')
-       console.log(lyric);
        res.data.lrc = lyric.now_lrc;
-       res.data.scroll = lyric.scroll ? 1 : 0;
+      //  res.data.scroll = lyric.scroll ? 1 : 0;
        this.setData({
          lyricList: res.data,
        })
@@ -200,7 +198,6 @@ Page({
   //切换显示
   toggleLyric(event){
     let showLyric = this.data.showLyric;
-    console.log(this.data.lyricList)
     this.setData({
       showLyric:!showLyric
     })
@@ -225,9 +222,13 @@ Page({
     let id = event.currentTarget.dataset.id;
     if ((!app.globalData.currPlaying.url) || (app.globalData.currPlaying.id != id)) {
       app.palyMusic(id, this);
+      this.setData({
+        // musicList:this.data.musicList,
+        music:app.globalData.currPlaying
+      })
     } else {
         //收起列表
-      _cancelDrawer();
+      this._cancelDrawer();
   }
   },
   toggleLike(){
@@ -240,6 +241,7 @@ Page({
     let id = this.data.music.id;
     let index = 0,rs = false ;
    for(let k in app.globalData.likeMusic.length){
+     console.log(id, "-", app.globalData.likeMusic[k].id)
       if( id === app.globalData.likeMusic[k].id){
         console.log("存在");
           rs = true;

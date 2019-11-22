@@ -47,7 +47,7 @@
                   </view>
                   <view class="index {{item.id == music.id ? 'current':''}}"  hidden="{{item.id == music.id}}">{{index+1}}</view>
                 </view>
-                <view class="list-info">
+                <view class="l-info">
                   <view class="music-name">
                     {{item.name}}
                   </view> 

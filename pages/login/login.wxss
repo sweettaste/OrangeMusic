@@ -13,18 +13,46 @@
 .view-image image{
   width: 70%;
 }
-.input{
+/* .gettel-info{
+  display: flex;
+} */
+.input input{
   border-bottom:#008B8B 1px solid;
   height: 80rpx;
-  margin: 50rpx;
-  margin-top:100rpx; 
+  margin: 40rpx;
+  margin-top:60rpx; 
   text-align: left;
 }
-.login{
-  background: #008B8B;
-  border-radius: 10%;
-  margin-left: 50rpx;
-  margin-right: 50rpx;
+ .get{
+  margin-top:120rpx; 
+  margin-right: 20rpx;
+  /* border: 0px #fff solid; */
+  font-size: 30rpx;
+  padding: 0;
+  margin: 40rpx;
   color: #fff;
-  font-size: 35rpx;
+  background: #008B8B;
 }
+.login{
+  background: rgb(47, 185, 185);
+  margin: 40rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.other{
+  position: fixed;
+  bottom: 30rpx;
+  left: 40rpx;
+  display: flex;
+  border: none;
+}
+.other .button {
+  background: #fff;
+  font-size: 25rpx;
+  color: grey;
+ 
+}
+.other .button::after{
+ border:none;
+}
+

@@ -1,0 +1,31 @@
+.register{
+  margin-top: 200rpx;
+}
+.input input{
+  border-bottom:#008B8B 1px solid;
+  height: 80rpx;
+  margin: 40rpx;
+  margin-top:60rpx; 
+  text-align: left;
+}
+.get{
+  margin-top:120rpx; 
+  margin-right: 20rpx;
+  /* border: 0px #fff solid; */
+  font-size: 30rpx;
+  padding: 0;
+  margin: 40rpx;
+  color: #fff;
+  background: #008B8B;
+}
+.verify{
+  display: flex;
+}
+.get-verify{
+  padding: 0;
+  margin-top: 65rpx;
+}
+.verify image{
+  margin-top: 20rpx;
+  width: 250rpx;
+}

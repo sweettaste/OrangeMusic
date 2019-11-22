@@ -70,6 +70,9 @@ Component({
       // 1.请求网络数据
       this._getBannersData()
       this._getRecommendSongs()
+      this.setData({
+        likeMusic: app.globalData.likeMusic
+      })
     },
     attached:function(){
      

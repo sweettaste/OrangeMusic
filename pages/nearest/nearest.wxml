@@ -8,8 +8,8 @@
   <view class="nearest-song">
     <scroll-view scroll-y>
       <block wx:for="{{nearestPlay}}" wx:key="{{index}}">
-        <view class="songs-info">
-          <view class="songs-index" bind:tap="playMusic" data-id="{{item.id}}">
+        <view class="songs-info"  bind:tap="playMusic" data-id="{{item.id}}">
+          <view class="songs-index" >
             <view hidden="{{item.id != music.id}}">
               <image src="../../assets/play/voice.png"></image>
             </view>

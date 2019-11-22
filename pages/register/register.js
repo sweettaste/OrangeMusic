@@ -1,20 +1,24 @@
-// pages/login/login.js
-const util = require('../../utils/util.js');
+// pages/register/register.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    clientHeight:0
+      pageUrl:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取屏幕宽度
-   
+      console.log(options)
+      let {id} = options
+      if( id == 1){
+        this.data.pageUrl = '../verify/verify'
+      }else{
+        this.data.pageUrl = '../loginshort/loginshort'
+      }
   },
 
   /**
@@ -58,39 +62,32 @@ Page({
   onReachBottom: function () {
 
   },
-  //发送验证码
-  getTel(event){
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  getPersonInfo(event){
     console.log(event)
-    let{tel,pwd} = event.detail.value;
-    if(util.phone(tel)){
-      if(!pwd){
-        wx.showToast({
-          title: '密码不能为空',
-          icon:'none'
-        });
-      }else{
-          //发送请求
-      }
+    let {tel,shortcode,imagecode} = event.detail.value;
+    if(tel && shortcode && imagecode){
+      //提交
+      
     }else{
       wx.showToast({
-        title: '账号不符合要求',
+        title: '输入项不能为空',
         icon:'none'
       })
     }
   },
-  register(event){
+  getVerifyCode(event){
     console.log(event)
-    let {id} = event.currentTarget.dataset;
-      wx.navigateTo({
-        url: '../register/register?id='+id,
-      })
   },
-  // rePassword(event){
-  //   console.log(event)
-  //   wx.navigateTo({
-  //     url: '../loginshort/loginshort',
-  //   })
-  // }
-
-
+  toVerify(){
+    wx.navigateTo({
+      url: this.data.pageUrl,
+    })
+  }
 })

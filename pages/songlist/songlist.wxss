@@ -155,7 +155,7 @@
   color: #7e7a7a;
   font-size: 30rpx;
 }
-.list-info{
+.l-info{
 
   width: 500rpx;
   overflow: hidden;
@@ -178,7 +178,7 @@
   height: 40rpx;
 }
 .music-writer{
-   color: #7e7a7a;
+   color: #979494;
    font-size: 27rpx;
 }
 .current{

@@ -211,6 +211,19 @@ function emoji(str) {
 
   return emojiObjs;
 }
+function phone( value ){
+  if( !value){
+    return;
+  }
+  
+  let reg = new RegExp(/^0?1[3|4|5|8][0-9]\d{8}$/);
+  if(reg.exec(value)){
+    return true;
+  }else{
+    return false;
+  }
+
+}
 
 module.exports = {
   formatTime: formatTime,
@@ -219,4 +232,5 @@ module.exports = {
   toggleplay: toggleplay,
   parse_lrc: parse_lrc,
   emoji: emoji,
+  phone:phone,
 }

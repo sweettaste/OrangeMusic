@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "最近播放"
+  "navigationBarTitleText": "最近播放",
+  "drawer": "../../components/drawer/drawer"
 
 }

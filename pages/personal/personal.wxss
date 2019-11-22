@@ -1,0 +1,41 @@
+/* pages/personal/personal.wxss */
+.get{
+  margin-top:120rpx; 
+  margin-right: 20rpx;
+  /* border: 0px #fff solid; */
+  font-size: 30rpx;
+  padding: 0;
+  margin: 40rpx;
+  color: #fff;
+  background: #008B8B;
+}
+.user-info{
+   font-size: 35rpx;
+    margin: 40rpx;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+}
+.user-info image{
+  width: 250rpx;
+  height: 250rpx;
+  margin-left: 70rpx;
+}
+.user-info input{
+  width: 450rpx;
+  border: #008B8B 1px solid;
+  margin-left: 20rpx;
+}
+.user-info  button{
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  vertical-align: middle;
+}
+.user-image{
+  margin: 40rpx;
+}
+.user-image image{
+  width: 150rpx;
+  margin: 0 auto;
+}

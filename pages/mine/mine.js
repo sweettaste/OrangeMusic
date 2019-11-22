@@ -9,7 +9,6 @@ Page({
    */
   data: {
     currIndex: 1,
-    clientHeight:0.0,
     titles:['我的','推荐'],
     // 底部播放模板
     music: {},

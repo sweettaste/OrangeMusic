@@ -1,0 +1,20 @@
+<view class="register">
+ <form bindsubmit="getPersonInfo" >
+    <view class="input">
+    <input  name="tel" placeholder="请输入手机号码" focus />
+  <!-- <button plain style="border:none" class="get-verify" bind:tap="getVerifyCode">获取验证码</button> -->
+  </view>
+  <!-- <view class="input"> 
+  <input  name="shortcode" placeholder="请输入验证码" focus />
+  </view>
+  <view class="verify">
+    <view class="input">
+      <input name="imagecode" focus placeholder="请输入图片验证码"></input>
+    </view>
+    <image src="https://www.oschina.net/action/user/captcha" mode="widthFix"> </image>
+  </view> -->
+  <view class="get">
+   <button form-type="submit" plain style="border:none" bind:tap="toVerify">下一步</button>
+  </view>
+</form>
+</view>
