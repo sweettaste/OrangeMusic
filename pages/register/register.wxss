@@ -28,5 +28,8 @@
 }
 .verify image{
   margin-top: 20rpx;
-  width: 250rpx;
+  width: 220rpx;
+}
+.refresh{
+  width: 30rpx;
 }

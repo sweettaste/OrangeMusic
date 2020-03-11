@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-      "w-panel-1": "../w-panel-1/w-panel-1"
+      "w-panel-1": "../../../components/w-panel-1/w-panel-1"
   }
 }

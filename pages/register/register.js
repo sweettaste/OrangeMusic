@@ -1,11 +1,14 @@
 // pages/register/register.js
+const {getCode} = require('../../utils/audio.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      pageUrl:''
+      pageUrl:'',
+      code:'',
+      phone:''
   },
 
   /**
@@ -19,6 +22,7 @@ Page({
       }else{
         this.data.pageUrl = '../loginshort/loginshort'
       }
+    this.getImageCode()
   },
 
   /**
@@ -42,12 +46,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -71,23 +69,44 @@ Page({
   },
   getPersonInfo(event){
     console.log(event)
-    let {tel,shortcode,imagecode} = event.detail.value;
-    if(tel && shortcode && imagecode){
+    let { tel, imgcode} = event.detail.value;
+    this.data.phone = tel;
+    if (tel && imgcode){
       //提交
-      
+      getCode(tel, imgcode);
     }else{
       wx.showToast({
         title: '输入项不能为空',
         icon:'none'
       })
     }
-  },
+  }, 
   getVerifyCode(event){
     console.log(event)
   },
   toVerify(){
+    console.log(this.data.phone)
+    // url: '../play/play?id=' + id
     wx.navigateTo({
-      url: this.data.pageUrl,
+      url: `../verify/verify?phone=${this.data.phone}`
+    })
+  },
+  //请求图片验证码
+  getImageCode(){   
+    const $this = this;
+    wx.request({
+      url: `http://orange.wxlspace.com/captcha?random= ${Math.random()}`,
+      responseType: 'arraybuffer',
+      success: (res) => {
+        //处理session不一致
+        wx.removeStorageSync('SESSION_ID');
+        let base64 = wx.arrayBufferToBase64(res.data);
+        base64 = 'data:image/jpg;base64,' + base64;
+        $this.setData({
+          code: base64
+        })
+        wx.setStorageSync('SESSION_ID', res.header["Set-Cookie"]);
+      }
     })
   }
 })

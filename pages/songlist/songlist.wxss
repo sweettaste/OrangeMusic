@@ -142,12 +142,11 @@
 .array-info{
   display: flex;
   width: 100%;
-  height: 100rpx;
+  height: 80rpx;
   padding-left: 10rpx;
-  
+  padding-bottom: 5rpx;
 }
 .list-index{
-
   width: 90rpx;
   padding-top: 28rpx;
 }
@@ -156,9 +155,16 @@
   font-size: 30rpx;
 }
 .l-info{
-
+  height: 80rpx;
   width: 500rpx;
   overflow: hidden;
+}
+.music-name{
+  font-size: 35rpx;
+  width: 100%;
+  height: 45rpx;
+  overflow: hidden;
+  color: #000;
    text-overflow: ellipsis;
     /* 多行文本溢出，webkit私有属性 */
   -webkit-line-clamp: 1;
@@ -166,20 +172,21 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
-.music-name{
-  font-size: 35rpx;
-  width: 100%;
-  height: 55rpx;
-  overflow: hidden;
-  color: #000;
-}
 .list-image image{
   width: 40rpx;
   height: 40rpx;
 }
 .music-writer{
+  height: 30rpx;
+   text-overflow: ellipsis;
+    /* 多行文本溢出，webkit私有属性 */
+  -webkit-line-clamp: 1;
+  /* 多行文本溢出必须配合以下属性使用 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
    color: #979494;
-   font-size: 27rpx;
+   font-size: 30rpx;
+   margin-bottom: 20rpx;
 }
 .current{
   display: none;

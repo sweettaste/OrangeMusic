@@ -33,7 +33,6 @@ Component({
   methods: {
     //点击搜索按钮
     getSearchName(event){
-      console.log(event)
       const value = event.detail.value.name;
       //判断输入框的内容是否为空
       if (value != ''){
@@ -44,11 +43,11 @@ Component({
           icon:'none',
         })
       }
-
     },
     searchSongs(value){
       //请求歌曲数据
       getMusic(value, (res) => {
+        console.log(res)
         //请求成功获取歌曲列表
         const songs = res.data.result.songs;
         this.setData({
@@ -60,7 +59,6 @@ Component({
     },
     //实时监听搜索框
     inputname(event){
-      console.log(event)
         //获得输入框内容
         const value = event.detail.value;
         //修改搜索的值
@@ -75,7 +73,6 @@ Component({
     playMusic(event){
       //获取请求播放的id与下标
       const {id,index} = event.currentTarget.dataset;
-      //给全局歌单列表获取当前歌曲列表
       //设置全局属性
       app.globalData.music_list = this.data.singleList;
       app.globalData.index_music = index;

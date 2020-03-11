@@ -24,7 +24,7 @@
     <block wx:for="{{recommTitle}}" 
             wx:key="{{index}}">
       <view class="view-item"> 
-        <view class="view-icon">
+        <view class="view-icon" bind:tap="selectClick" data-id="{{index}}">
           <image src="{{'../../../assets/icons/'+item.icon}}" mode="widthFix"></image>
         </view>
       <view class="view-text">{{item.title}}</view>

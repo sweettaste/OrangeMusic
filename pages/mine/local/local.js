@@ -50,7 +50,6 @@ Component({
       })
     },
     toNearest(event) {
-      console.log(event)
       if (event.currentTarget.dataset.index == 0) {
         wx.navigateTo({
           url: '../../../../nearest/nearest',

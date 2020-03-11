@@ -1,31 +1,16 @@
-// pages/songlist/songlist.js
-const { getRecommendList, getTopList } = require('../../utils/audio.js');
+const { getSongsList } = require('../../utils/audio.js');
 const app = getApp();
 const backgroundAudioManager = app.globalData.backgroundAudioManager;
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     //歌单详情信息
     songsInfo:[],
     music: {},
     playing: false,
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-      console.log(options)
-      //获取id,获取type 0 代表推荐歌单 1代表排行榜 2代表心动歌单
-    const { id, type} = options;
-      if(type == 0 ){
-        this.recommendsData(id);
-      }else if(type == 1){
-        this.topData(id)
-      }else if(type == 2){
-        this.likeData();
-      }
+    const { id } = options;
+    this.songsList(id);
     //初始化数据
     this.setData({
       music: app.globalData.currPlaying,
@@ -33,59 +18,12 @@ Page({
       
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-      this.setData({
-        music:app.globalData.currPlaying
-      })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-  recommendsData(id){
-    //请求推荐歌曲
-    getRecommendList(id, (res) => {
+   //根据id请求歌单详情
+  songsList(id){
+    getSongsList(id, (res) => {
       console.log(res)
         this.setData({
-          songsInfo: res.data.playlist,
-        })
-    })
-  },
-  //排行榜列表
-  topData(id){
-    getTopList(id,(res) => {
-      console.log(res)
-        this.setData({
-          songsInfo: res.data.playlist,
+          songsInfo: res.playlist,
         })
     })
   },
@@ -105,10 +43,6 @@ Page({
   playAll(event){
     //更改当前列表的歌曲
     app.globalData.music_list = this.data.songsInfo.tracks;
-    console.log(app.globalData.music_list)
-    //let length = app.globalData.music_list.length;
-    //播放
-    // let playIndex = Math.floor(Math.random() * length);
     app.palyMusic(app.globalData.music_list[0].id,this);
     //刷新页面
     this.setData({
@@ -148,26 +82,5 @@ Page({
         playing
       });
     }
-  },
-  //喜欢的音乐
-  likeData(){
-    console.log(app.globalData.likeMusic)
-    //获取用户的头像、昵称
-    //手动添加数据
-    let info = {
-      coverImgUrl:'../../assets/mime/likes.png',
-      name : '我喜欢的音乐',
-      tracks: app.globalData.likeMusic
-
-    }
-    // this.data.songsInfo.coverImgUrl = "../../assets/mime/likes.png";
-    // this.data.songsInfo.name = "我喜欢的音乐";
-    // this.data.songsInfo.tracks = app.globalData.likeMusic; 
-   // let songsInfo = ;
-    //刷新页面
-    console.log(this.data.songsInfo)
-    this.setData({
-      songsInfo: info
-    })
   }
 })

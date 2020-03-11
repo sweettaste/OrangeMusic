@@ -1,7 +1,4 @@
-<!--pages/mine/mine.wxml-->
-<!-- 引入模板 -->
-<!-- <import src="../../template/pageplay/pageplay.wxml" />
-<template is="pp" data="{{music:music,playing:playing,playtype:playtype}}" /> -->
+
 <import src="../../template/pageplay/pageplay.wxml"/>
 <template is="pp" data="{{music:music,playing:playing}}" />
 <view class="bg">
@@ -9,7 +6,7 @@
 <!--搜索框-->
   <search />
 <!--标题栏-->
-  <recommend titles="{{titles}}" bind:titleClick="handleTitleClick" id="recommend"/>
+  <recommend titles="{{titles}}"  bind:titleClick="handleTitleClick" id="recommend"/>
 </view>
   <!--滚动面板-->
 <!-- style="height: {{clientHeight?clientHeight+'px':'auto'}}" -->

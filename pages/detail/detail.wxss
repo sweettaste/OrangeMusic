@@ -1,0 +1,21 @@
+.bg{
+  padding-top: 100rpx;
+  /* background: #ededed;
+  height: 100%;
+  width: 100%; */
+}
+.img_head{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center
+}
+.img_head image{
+  height: 100rpx;
+  width: 100rpx;
+}
+.account{
+  height: 150rpx;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}

@@ -31,11 +31,6 @@ Component({
       wx.navigateTo({
         url: '../../../../songlist/songlist?id='+id+'&type=0',
       })
-      // //跳转到播放界面
-      // wx.navigateTo({
-      //   url: '../../../../play/play?id=' + id
-      // }) 
-
     }
 
   }

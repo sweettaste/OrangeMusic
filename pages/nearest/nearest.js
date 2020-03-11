@@ -1,5 +1,6 @@
 // pages/nearest/nearest.js
 const app = getApp();
+const backgroundAudioManager = app.globalData.backgroundAudioManager;
 Page({
 
   /**
@@ -15,12 +16,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  
       //初始化数据globalData
+    if(app.globalData.nearestPlay.length != 0 ){
+      console.log(app.globalData.nearestPlay.length)
       this.setData({
-        music:app.globalData.currPlaying,
-        nearestPlay:app.globalData.nearestPlay,
-        playing:app.globalData.playing
+        music: app.globalData.currPlaying,
+        nearestPlay: app.globalData.nearestPlay,
+        playing: app.globalData.playing
       })
+    }
   },
 
   /**

@@ -1,0 +1,37 @@
+<view class="top">
+  <view class="title">
+    <text style="border-left:6rpx solid #d33f33;padding-left: 20rpx;">官方榜</text>
+    <image src="/assets/icons/arrow.png"/>
+  </view>
+  <block wx:for="{{goveList}}" wx:key="item">
+    <view class="item" bind:tap="clickGove" data-id="{{item.id}}">
+      <view class="item-img">
+        <image src="{{item.coverImgUrl}}" mode="widthFix"/>
+      </view>
+      <view class="item-tracks">
+        <view wx:for="{{item.tracks}}" wx:for-item="items" wx:key="index" class="items-info">
+         {{index+1}}.<text>{{items.first}} - {{items.second}}</text>
+        </view>
+      </view>
+      <view class="desc">
+        <text>{{item.updateFrequency}}</text>
+      </view>
+    </view>
+  </block>
+  <view class="recommendList">
+   <w-panel title="推荐榜" datalist="{{recommendList}}"/>
+  </view>
+</view>
+
+
+ <!-- <view class="title">
+    推荐榜
+    </view>
+   <view class="recommendList-item">
+     <block wx:for="{{recommendList}}" wx:key="index">
+      <view class="remm-img">
+         <image src="{{item.coverImgUrl}}" mode="widthFix"></image>
+      </view>
+    </block>
+    <text></text>
+   </view> -->

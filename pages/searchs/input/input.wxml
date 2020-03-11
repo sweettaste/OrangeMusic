@@ -58,7 +58,8 @@
              <!-- 歌曲名称 -->
             <view class="song-name">{{item.name}}</view>
            
-            <view class="song-info">{{item.artists[0].name}}/{{item.artists[1].name}}--{{item.album.name}}</view>
+            <view class="song-info">{{item.artists[0].name}}-{{item.artists[1].name}}-{{item.album.name}}</view>
+               <!-- <view class="song-info">{{item.author}}</view> -->
                
             </view>
           </block> 

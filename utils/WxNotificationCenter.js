@@ -117,7 +117,7 @@ function removeNotification(name,observer) {
  */
 
 function postNotificationName(name, info) {
-    console.log("postNotificationName:" + name);
+    console.log("postNotificationName:" + name+info);
     if(__notices.length == 0){
       console.log("postNotificationName error: u hadn't add any notice.");
       return;

@@ -1,5 +1,7 @@
 // pages/login/login.js
+const app = getApp();
 const util = require('../../utils/util.js');
+const { getToken } = require('../../utils/audio.js');
 Page({
 
   /**
@@ -13,7 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取屏幕宽度
+    //设置当前界面标题
+    wx.setNavigationBarTitle({
+      title: `登录`,
+    })
    
   },
 
@@ -70,6 +75,17 @@ Page({
         });
       }else{
           //发送请求
+        getToken(tel, pwd, (mobile)=>{
+          // app.globalData.mobile = mobile;
+          app.globalData.mobile = mobile;
+          wx.navigateTo({
+            url: '../mine/mine'
+          })
+          // wx.navigateTo({
+          //   url: '../register/register?id=' + id,
+          //})
+        });
+
       }
     }else{
       wx.showToast({
@@ -78,8 +94,8 @@ Page({
       })
     }
   },
+  //注册都需要发送短信
   register(event){
-    console.log(event)
     let {id} = event.currentTarget.dataset;
       wx.navigateTo({
         url: '../register/register?id='+id,

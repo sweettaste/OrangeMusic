@@ -2,26 +2,19 @@
 @import '../../template/pageplay/pageplay.wxss';
 .nearest-bg{
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: relative;
 }
-.title{
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 90rpx;
-  padding-top: 20rpx;
-  padding-left: 40rpx;
-  background: #fff;
-  font-size: 48rpx;
-  color: #000;
-  /* z-index: 2; */
-  border-bottom: 1px solid #ededed;
-}
+
 .nearest-song{
+  padding: 10px 0;
   margin-left: 5rpx;
-  margin-top: 130rpx;
+  /* margin-top: 47rpx;
+  margin-bottom: 51rpx; */
+  overflow: hidden;
+}
+scroll-view{
+  height: calc(100%  - 120rpx);
 }
 .songs-info{
   width: 100%;

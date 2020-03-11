@@ -1,4 +1,3 @@
-// pages/play/paly.js
 const { getMusicUrl, getLyric} = require('../../utils/audio.js');
 const util = require('../../utils/util.js');
 const app = getApp();
@@ -50,13 +49,7 @@ Page({
     ],
 
   },
-  
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    //获取id
     const id = options.id;
     //初始化
     this.setData({
@@ -74,15 +67,6 @@ Page({
        duration: util.formatTime(app.globalData.currPlaying.dt),
        sliderMax: Math.floor(app.globalData.currPlaying.dt)
      });
-   
-     for(let k in app.globalData.likeMusic.length){
-       if(music.id === app.globalData.likeMusic[k].id){
-         this.setData({
-           isLike:true
-         });
-         break;
-       }
-     }
      // 设置当前界面标题
      wx.setNavigationBarTitle({
        title: `${app.globalData.currPlaying.name}-${app.globalData.currPlaying.ar[0].name}`,
@@ -91,7 +75,6 @@ Page({
      getLyric(app.globalData.currPlaying.id, (res) => {
        let lyric = util.parse_lrc(res.data.lrc && res.data.lrc.lyric ? res.data.lrc.lyric : '')
        res.data.lrc = lyric.now_lrc;
-      //  res.data.scroll = lyric.scroll ? 1 : 0;
        this.setData({
          lyricList: res.data,
        })
@@ -118,29 +101,12 @@ Page({
         }
       }
       //更新进度条，更新当前播放进度
-      // console.log(this.data.currLrcIndex)
-      // console.log(currLrcIndex)
       this.setData({
         currLrcIndex: currLrcIndex,
         sliderValue: Math.floor(backgroundAudioManager.currentTime*1000),
         currTime: util.formatTime(Math.floor(backgroundAudioManager.currentTime * 1000))
       })
     })
-  },
-
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage:  () => {
-
   },
   //暂停或播放事件
   //播放状态改变
@@ -153,7 +119,6 @@ Page({
           playing = false;
           console.log('暂停播放');
       } else {
-        //反之
           backgroundAudioManager.play();
           playing = true;
         console.log('开始播放');
@@ -166,7 +131,6 @@ Page({
   },
   //进度条
   sliderValue(){
-
   },
   //播放上一首
   playPrev(event){
@@ -218,45 +182,15 @@ Page({
   },
   //列表跳转指定某一首歌曲
   playList(event){
-    console.log(event)
     let id = event.currentTarget.dataset.id;
     if ((!app.globalData.currPlaying.url) || (app.globalData.currPlaying.id != id)) {
       app.palyMusic(id, this);
       this.setData({
-        // musicList:this.data.musicList,
         music:app.globalData.currPlaying
       })
     } else {
         //收起列表
       this._cancelDrawer();
   }
-  },
-  toggleLike(){
-    console.log("toggleLike")
-    let isLike = this.data.isLike;
-    this.setData({
-      isLike: !isLike
-    })
-    //把喜欢的歌曲的id存到数组里
-    let id = this.data.music.id;
-    let index = 0,rs = false ;
-   for(let k in app.globalData.likeMusic.length){
-     console.log(id, "-", app.globalData.likeMusic[k].id)
-      if( id === app.globalData.likeMusic[k].id){
-        console.log("存在");
-          rs = true;
-          index = k;
-          break;
-      }
-   }
-   //移除
-    if (rs){
-      console.log("移除")
-      app.globalData.likeMusic.splice(index,1);
-   }else{
-      console.log("添加");
-      app.globalData.likeMusic.push(this.data.music)
-   }
-    console.log(app.globalData.likeMusic)
   }
 })

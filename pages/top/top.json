@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-panel": "../../components/w-panel-1/w-panel-1"
+  },
+  "navigationBarTitleText":"排行榜"
+}

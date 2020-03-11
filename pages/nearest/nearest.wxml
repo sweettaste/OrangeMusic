@@ -2,9 +2,6 @@
 <import src="../../template/pageplay/pageplay.wxml"/>
 <template is="pp" data="{{music:music,playing:playing}}" />
 <view class="nearest-bg">
-  <view class="title">
-    歌曲
-  </view>
   <view class="nearest-song">
     <scroll-view scroll-y>
       <block wx:for="{{nearestPlay}}" wx:key="{{index}}">

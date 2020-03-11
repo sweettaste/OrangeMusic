@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/mine/mine",
-    "pages/login/login",
+    "pages/top/top",
+    "pages/detail/detail",
     "pages/personal/personal",
+    "pages/login/login",
     "pages/register/register",
     "pages/songlist/songlist",
     "pages/play/play",
@@ -11,7 +13,9 @@
     "pages/logs/logs",
     "pages/nearest/nearest",
     "pages/verify/verify",
-    "pages/loginshort/loginshort"
+    "pages/loginshort/loginshort",
+    "pages/showpersonal/showpersonal",
+    "pages/everyrec/everyrec"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,11 +1,12 @@
 .play-bg {
-    background-position: 50%;
+    background-position:left;
     background-repeat: no-repeat;
     background-size: auto 100%;
     -webkit-transform: scale(1.5);
+    filter: blur(26px);
     transform: scale(1.5);
-    -webkit-transform-origin: center top;
-    transform-origin: center top;
+    -webkit-transform-origin: center ;
+    transform-origin: center;
     position: fixed;
     left: 0;
     right: 0;
@@ -149,10 +150,11 @@
   line-height: 75rpx;
   width: 100%;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.1;
 }
 .current{
-  color: #008B8B;
+  color: #fff;
+  opacity: 1;
   font-size: 37rpx;
 }
 
@@ -177,7 +179,6 @@
   position: relative;
   flex: 1;
   text-align: center;
-
 }
 .item image{
   margin-left: 50rpx;

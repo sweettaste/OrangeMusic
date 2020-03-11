@@ -1,0 +1,8 @@
+<view class="bg">
+<!-- 头像 -->
+  <view class="img_head">
+    <image src="../../assets/icons/img_head.png"></image>
+  </view>
+  <!-- 账户 -->
+  <view class="account">{{mobile ? mobile :'正在获取'}}</view>
+</view>

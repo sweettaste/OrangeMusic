@@ -5,13 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    phone:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    this.data.phone = options.phone
 
   },
 
@@ -65,11 +67,41 @@ Page({
   },
   verify(event){
     console.log(event)
-    let {shortcode,imagecode} = event.detail.value;
-    if(shortcode && imagecode){
+    let {shortcode,pwd} = event.detail.value;
+    let mobile = this.data.phone;
+    if(shortcode && pwd){
       //发请求验证
-      wx.navigateTo({
-        url: '../personal/personal',
+      // wx.navigateTo({
+      //   url: '../personal/personal',
+      // })
+      wx.request({
+        url: 'https://orange.wxlspace.com/api/register',
+        data:{
+          mobile,
+          password:pwd,
+          verifyCode: shortcode
+        },
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cookie': wx.getStorageSync('SESSION_ID')
+        },
+        method: "POST",
+        success: (res) => {
+          console.log(res.data)
+          if(res.data.status === 200){
+            wx.navigateTo({
+              url: '../login/login',
+            })
+            wx.showToast({
+              title: '注册成功',
+              icon: 'success',
+              duration: 2000
+            })
+            
+
+          }
+        }
+
       })
     }else{
       wx.showToast({

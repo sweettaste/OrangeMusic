@@ -24,7 +24,6 @@ Component({
   methods: {
     //点击切换下标
     handleItemClick(event){
-      console.log(event)
       //获取当前事件的index
       const index = event.currentTarget.dataset.index;
       //修改index
@@ -37,6 +36,46 @@ Component({
     //点击跳转到登陆界面
     handleLogin(event){
       console.log(event);
+    },
+    login() {
+      console.log(wx.getStorageSync('AccessToken'))
+      if ( wx.getStorageSync('AccessToken') ){
+        wx.showToast({
+          title: '登录未过期',
+          icon: 'none'
+        });
+        wx.navigateTo({
+          url: '../../pages/detail/detail'
+        })
+     }else{
+       //token不存在,去登陆
+        wx.navigateTo({
+          url: '../../pages/login/login'
+        })
+     }
+     // wx.checkSession({ 
+      //   success: function (res) {
+      //     console.log(res, '登录未过期')
+      //     wx.showToast({
+      //       title: '登录未过期',
+      //       icon: 'none'
+      //     });
+      //     wx.navigateTo({
+      //       url: '../../../../pages/detail/detail'
+      //     })
+      //   },
+      //   fail: function (err) {
+      //     wx.navigateTo({
+      //       url: '../../../../pages/login/login',
+      //     })
+      //     // console.log(err, '登录过期了');
+      //     // wx.showToast({
+      //     //   title: '重新登录',
+      //     //   icon:'none'
+      //     // })
+      //   }
+      // })
     }
-  }
+  },
+ 
 })

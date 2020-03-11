@@ -1,8 +1,12 @@
 <!--components/recommend/recommend.wxml-->
 <view class="control">
-  <navigator class="control-image" url="../../pages/login/login"  >
-    <image src="../../assets/icons/more.png" mode="widthFix"></image>  
-  </navigator>
+  <!-- 跳转到登录页面 -->
+  <!-- <navigator class="control-image" url="../../pages/login/login"  >
+   
+  </navigator> -->
+  <view class="control-image" bind:tap="login">
+     <image src="../../assets/icons/more.png" mode="widthFix"></image>  
+  </view>
   <view class="titlesbar">
     <view class="item {{currIndex == index?'active':''}}" 
           wx:for="{{titles}}" wx:key="{{index}}" 
